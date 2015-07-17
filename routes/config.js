@@ -1,4 +1,5 @@
 var config = {
+    ddbb: false,
     domain: {
         url: '', // /htmlEditor
         host: 'http://localhost', // http://ayxos.com/htmlEditor

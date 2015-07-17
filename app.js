@@ -1,6 +1,5 @@
 var express         = require('express'),
     passport        = require('passport'),
-    db              = require('./routes/mongodb/schemas'),
     path            = require('path'),
     flash           = require('connect-flash'),
     errorHandler    = require('errorhandler'),
@@ -10,8 +9,7 @@ var app             = express();
     server          = require('http').createServer(app),
     io              = require('socket.io').listen(server);
 
-var query           = require('./routes/mongodb/functions')(app, db),
-    config          = require('./routes/config');
+var config          = require('./routes/config');
 
 var port            = config.domain.port;
 
@@ -19,6 +17,8 @@ var morgan          = require('morgan')
   , cookieParser    = require('cookie-parser')
   , bodyParser      = require('body-parser')
   , session         = require('express-session');
+
+var query, db;
 
 
 app.set('port', process.env.PORT || port);
@@ -48,9 +48,14 @@ app.get('/postit/config', function(req, res) {
 });
 
 require('./routes/common/index.js')(app, config, passport);
-require('./routes/api/articles')(app, config, db, query);
-require('./routes/api/users')(app, config, db, query);
-require('./routes/common/auth')(app, config, db, passport);
+
+if(config.ddbb) {
+  db = require('./routes/mongodb/schemas');
+  query = require('./routes/mongodb/functions')(app, db);
+  require('./routes/api/articles')(app, config, db, query);
+  require('./routes/api/users')(app, config, db, query);
+  require('./routes/common/auth')(app, config, db, passport);
+}
 
 // launch ======================================================================
 app.listen(port);

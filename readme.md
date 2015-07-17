@@ -7,3 +7,7 @@ Assuming you already have the needed MEAN Stack pieces installed on your compute
 
 - grunt
 - node app.js
+
+## To enable the MongoDB & endpoints
+
+- go to routes/config.js and set ddbb to true
