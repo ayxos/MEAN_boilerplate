@@ -1,7 +1,6 @@
 /**
  * Dependencies.
  */
-var teacher 		 = require('teacher');
 var http             = require('http');
 var fs               = require('fs');
 
