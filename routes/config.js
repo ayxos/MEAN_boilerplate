@@ -2,7 +2,7 @@ var config = {
     ddbb: false,
     domain: {
         url: '', // /htmlEditor
-        host: 'http://localhost', // http://ayxos.com/htmlEditor
+        host: 'http://localhost', // http://DOMAIN.com/htmlEditor
         port: '8007' // null
     },
     env: 'dev', // dev or prod
@@ -10,24 +10,22 @@ var config = {
         credentials: '', // username:password@
         host: 'localhost',
         port: ':27017', // :port
-        dbName: 'blogio'
+        dbName: 'siteName'
     },
     twitter: {
         consumerKey: 'xxx',
         consumerSecret: 'xxx'
     },
     public: {
-        blogName: 'postit',
-        blogDescription: 'Small lightweight and real-time system blogging',
+        siteName: 'siteName',
+        siteDescription: 'siteName',
         api: {
             articles: '/articles',
-            articlesPublished: '/articlespublished',
             users: '/users'
         },
         url: {
             authLocal: '/auth/local',
             admin: '/',
-            blog: '/blog'
         }
     }
 };
