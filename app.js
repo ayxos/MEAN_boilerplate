@@ -1,5 +1,4 @@
 var express         = require('express'),
-    passport        = require('passport'),
     path            = require('path'),
     flash           = require('connect-flash'),
     errorHandler    = require('errorhandler'),
@@ -34,8 +33,6 @@ app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser()); // get information from html forms
 
 app.use(session({secret: 'monkey'}));
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(flash());
 
 // development only
@@ -47,14 +44,12 @@ app.get('/postit/config', function(req, res) {
     res.send(config.public);
 });
 
-require('./routes/common/index.js')(app, config, passport);
+require('./routes/common/index.js')(app, config);
 
 if(config.ddbb) {
   db = require('./routes/mongodb/schemas');
   query = require('./routes/mongodb/functions')(app, db);
   require('./routes/api/articles')(app, config, db, query);
-  require('./routes/api/users')(app, config, db, query);
-  require('./routes/common/auth')(app, config, db, passport);
 }
 
 // launch ======================================================================

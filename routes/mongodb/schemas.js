@@ -7,39 +7,27 @@ mongoose.connect('mongodb://' + config.mongodb.credentials + config.mongodb.host
     if (err) throw err;
 });
 
-var userSchema = mongoose.Schema({
-    username: String,
-    fullName: String,
-    provider: String,
-    image: String,
-    role: {
-        type: String,
-        default: 'user'
-    },
-    email: String,
-    registerDate: {
-        type: Date,
-        default: Date.now
-    },
-    accountState: {
-        type: String,
-        default: 'waiting'
-    },
-    password: String,
-    salt: String
-});
-
-// generating a hash
-userSchema.methods.generateHash = function(password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-};
-
-// checking if password is valid
-userSchema.methods.validPassword = function(password) {
-    console.warn('PASSWORD', password);
-    console.warn('THIS', this.local.password);
-    return bcrypt.compareSync(password, this.local.password);
-};
+// var userSchema = mongoose.Schema({
+//     username: String,
+//     fullName: String,
+//     provider: String,
+//     image: String,
+//     role: {
+//         type: String,
+//         default: 'user'
+//     },
+//     email: String,
+//     registerDate: {
+//         type: Date,
+//         default: Date.now
+//     },
+//     accountState: {
+//         type: String,
+//         default: 'waiting'
+//     },
+//     password: String,
+//     salt: String
+// });
 
 var articleSchema = mongoose.Schema({
     title: String,

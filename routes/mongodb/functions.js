@@ -2,41 +2,41 @@ var ObjectId = require('mongoose').Types.ObjectId;
 
 module.exports = function(app, db) {
     return {
-        getUsers: function (callback) {
-            db.User.find(function (err, users) {
-                if (err) throw err;
+        // getUsers: function (callback) {
+        //     db.User.find(function (err, users) {
+        //         if (err) throw err;
 
-                if (users.length > 0) {
-                    callback(users);
-                } else {
-                    callback(null);
-                }
-            });
-        },
+        //         if (users.length > 0) {
+        //             callback(users);
+        //         } else {
+        //             callback(null);
+        //         }
+        //     });
+        // },
 
-        getUserById: function (id, callback) {
-            db.User.findOne({_id: id}, function (err, user) {
-                if (err) throw err;
+        // getUserById: function (id, callback) {
+        //     db.User.findOne({_id: id}, function (err, user) {
+        //         if (err) throw err;
 
-                if (user) {
-                    callback(user);
-                } else {
-                    callback(null);
-                }
-            });
-        },
+        //         if (user) {
+        //             callback(user);
+        //         } else {
+        //             callback(null);
+        //         }
+        //     });
+        // },
 
-        getUserByUsername: function (username, callback) {
-            db.User.findOne({username: username}, function (err, user) {
-                if (err) throw err;
+        // getUserByUsername: function (username, callback) {
+        //     db.User.findOne({username: username}, function (err, user) {
+        //         if (err) throw err;
 
-                if (user) {
-                    callback(user);
-                } else {
-                    callback(null);
-                }
-            });
-        },
+        //         if (user) {
+        //             callback(user);
+        //         } else {
+        //             callback(null);
+        //         }
+        //     });
+        // },
 
         getPostById: function (id, callback) {
             db.Article.findOne({_id: id}, function (err, post) {

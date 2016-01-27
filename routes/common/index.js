@@ -33,36 +33,9 @@ module.exports = function(app, config, passport) {
         });
     });
 
-    var file = fs.createWriteStream("test.txt");
-    app.get("test.txt", function(response) {
-        // console.log('file', file);
-        response.pipe(file);
-    });
-
-    // CHECKER =============================
-    app.post('/check', function(req, res) {
-    	var lang = req.body.lang;
-    	var text = req.body.html;
-    	console.log(text);
-		/**
-		 * Advanced with custom language.
-		 */
-		var teach = new teacher.Teacher(lang, ['ignored type']);
-
-		teach.check(text, function(err, data) {
-		    console.log(data);
-		    res.send(data);
-		});
-    });
-
-    // LOGOUT ==============================
-    app.get('/logout', function(req, res) {
-        req.logout();
-        if(config.domain.url) res.redirect(config.domain.url);
-        else res.redirect('/');
-    });
-
-    if (config.domain.port) {
-        config.domain.port = ":" + config.domain.port;
-    }
+    // var file = fs.createWriteStream("test.txt");
+    // app.get("test.txt", function(response) {
+    //     // console.log('file', file);
+    //     response.pipe(file);
+    // });
 };
