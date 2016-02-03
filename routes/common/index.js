@@ -33,11 +33,11 @@ module.exports = function(app, config, passport) {
         });
     });
 
-    var file = fs.createWriteStream("test.txt");
-    app.get("test.txt", function(response) {
-        // console.log('file', file);
-        response.pipe(file);
-    });
+    // var file = fs.createWriteStream("test.txt");
+    // app.get("test.txt", function(response) {
+    //     // console.log('file', file);
+    //     response.pipe(file);
+    // });
 
     // CHECKER =============================
     app.post('/check', function(req, res) {
