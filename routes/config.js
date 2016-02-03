@@ -1,5 +1,5 @@
 var config = {
-    ddbb: false,
+    ddbb: true,
     domain: {
         url: '', // /htmlEditor
         host: 'http://localhost', // http://DOMAIN.com/htmlEditor
