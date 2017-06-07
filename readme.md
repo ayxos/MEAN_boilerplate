@@ -1,5 +1,7 @@
 # Lightweight implementation of the "MEAN Stack"
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ayxos/MEAN_boilerplate.svg)](https://greenkeeper.io/)
+
 ## Modular, easy-to-use (yet powerful) boilerplate for building MEAN-powered apps & sites.
 Assuming you already have the needed MEAN Stack pieces installed on your computer/server (MongoDB, NodeJS & ExpressJS)
 
